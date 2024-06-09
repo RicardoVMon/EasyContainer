@@ -1,68 +1,23 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Convert Office to PDF</title>
-  <style>
-    #drop_zone {
-      border: 5px solid blue;
-      width: 200px;
-      height: 100px;
-    }
-  </style>
+  <title>File Input Drag n Drop</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <link rel="stylesheet" href="css/main.css">
+  <script src="/Scripts/js/main.js" defer></script>
 </head>
 
-<body>
-  <h2>Convert Office to PDF</h2>
-  <form method="post" id="uploadForm" enctype="multipart/form-data">
-    <div id="drop_zone" ondrop="dropHandler(event);">
-      <p>Drag one or more files to this <i>drop zone</i>.</p>
-    </div>
-    <div id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
-      <p>Drag one or more files to this <i>drop zone</i>.</p>
-    </div>
-    <input type="file" id="fileInput" name="file">
-    <button type="submit">Convert to PDF</button>
-  </form>
-
-  <div id="download-link"></div>
-
-  <script>
-    function dropHandler(ev) {
-      console.log("File(s) dropped");
-
-      // Prevent default behavior (Prevent file from being opened)
-      ev.preventDefault();
-
-      if (ev.dataTransfer.items) {
-        // Use DataTransferItemList interface to access the file(s)
-        [...ev.dataTransfer.items].forEach((item, i) => {
-          // If dropped items aren't files, reject them
-          if (item.kind === "file") {
-            const file = item.getAsFile();
-            console.log(`… file[${i}].name = ${file.name}`);
-          }
-        });
-      } else {
-        // Use DataTransfer interface to access the file(s)
-        [...ev.dataTransfer.files].forEach((file, i) => {
-          console.log(`… file[${i}].name = ${file.name}`);
-        });
-      }
-    }
-  </script>
-
-  <script>
-    function dragOverHandler(ev) {
-      console.log("File(s) in drop zone");
-
-      // Prevent default behavior (Prevent file from being opened)
-      ev.preventDefault();
-    }
-  </script>
-
+<body style="width: 500px; height: 200px;"></body>
+  <main>
+    <section class="droparea">
+      <i class="far fa-images"></i>
+      <p>Drop your .png or .jpg files here!</p>
+      <p><small>Up to 20 images, No max file size.</small></p>
+    </section>
+  </main>
 </body>
 
 </html>

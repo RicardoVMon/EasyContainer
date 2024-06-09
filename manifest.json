@@ -4,7 +4,7 @@
     "description": "A Chrome extension that makes it easy to convert web pages to PDFs using the Ilovepdf API.", 
     "version": "1.0",
     "action": {
-      "default_popup": "index.html",
-      "default_icon": "pdf.png"
+      "default_popup": "/Views/index.html",
+      "default_icon": "/Views/img/pdf.png"
     }
   }
