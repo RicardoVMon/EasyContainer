@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convert Office to PDF</title>
+    <style>
+        #progress-bar {
+            width: 0;
+            height: 20px;
+            background-color: green;
+            margin-top: 20px;
+        }
+        #progress-container {
+            width: 100%;
+            background-color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h2>Convert Office to PDF</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" id="fileInput" name="file">
+        <button type="submit">Convert to PDF</button>
+    </form>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+    <div id="download-link"></div>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            let fileInput = document.getElementById('fileInput').files[0];
+            if (!fileInput) {
+                alert("Please select a file.");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append('file', fileInput);
+
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'upload.php', true);
+
+            xhr.upload.onprogress = function (e) {
+                if (e.lengthComputable) {
+                    let percentage = (e.loaded / e.total) * 100;
+                    document.getElementById('progress-bar').style.width = percentage + '%';
+                }
+            };
+
+            xhr.onload = function () {
+                if (this.status == 200) {
+                    let response = JSON.parse(this.responseText);
+                    if (response.status == 'success') {
+                        let downloadLink = document.createElement('a');
+                        downloadLink.href = response.fileUrl;
+                        downloadLink.innerText = 'Download PDF';
+                        document.getElementById('download-link').innerHTML = '';
+                        document.getElementById('download-link').appendChild(downloadLink);
+                    } else {
+                        alert("Error: " + response.message);
+                    }
+                } else {
+                    alert("Error: Could not upload file.");
+                }
+            };
+
+            xhr.send(formData);
+        });
+    </script>
+</body>
+</html>
