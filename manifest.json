@@ -1,0 +1,10 @@
+{
+    "manifest_version": 3,
+    "name": "EasyPDF",
+    "description": "A Chrome extension that makes it easy to convert web pages to PDFs using the Ilovepdf API.", 
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html",
+      "default_icon": "pdf.png"
+    }
+  }
