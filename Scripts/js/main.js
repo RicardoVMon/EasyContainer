@@ -1,10 +1,10 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyAUqBV6bN5XxWKtTRB6fb2n8_xi5nSwyEY",
-    authDomain: "easy-pdf-3900c.firebaseapp.com",
-    projectId: "easy-pdf-3900c",
-    storageBucket: "easy-pdf-3900c.appspot.com",
-    messagingSenderId: "782956175567",
-    appId: "1:782956175567:web:65d30ae912ec9b3332d7ba"
+    apiKey: APIKEY,
+    authDomain: AUTHDOMAIN,
+    projectId: PROJECTID,
+    storageBucket: STORAGEBUCKET,
+    messagingSenderId: MESSAGINGSENDERID,
+    appId: APPID
 };
 firebase.initializeApp(firebaseConfig);
 
