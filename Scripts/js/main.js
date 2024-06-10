@@ -1,6 +1,3 @@
-import ILovePDFApi from '@ilovepdf/ilovepdf-nodejs';
-const instance = new ILovePDFApi('ILOVEPDF_PUBLIC_KEY', 'ILOVEPDF_PRIVATE_KEY');
-const myTaskCompress = instance.newTask('compress');
 
 const initApp = () => {
 
