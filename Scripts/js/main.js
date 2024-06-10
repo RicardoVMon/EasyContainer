@@ -1,6 +1,6 @@
-const ilovepdf = new ILovePDFApi('ILOVEPDF_PUBLIC_KEY');
-const myTaskCompress = ilovepdf.newTask('compress');
-
+import ILovePDFApi from '@ilovepdf/ilovepdf-nodejs';
+const instance = new ILovePDFApi('ILOVEPDF_PUBLIC_KEY', 'ILOVEPDF_PRIVATE_KEY');
+const myTaskCompress = instance.newTask('compress');
 
 const initApp = () => {
 
@@ -38,6 +38,8 @@ const handleDrop = (e) => {
     // Methods for verifying the files
     console.log(files);
     console.log(fileArray);
+
+    
 
 
 }

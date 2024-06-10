@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@ilovepdf/ilovepdf-nodejs": "^0.2.6"
+  }
+}
