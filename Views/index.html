@@ -1,16 +1,22 @@
+<!-- <?php 
+include_once("../Scripts/php/convert.php");
+?> -->
+
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy"
+    content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.gstatic.com http://localhost:* http://127.0.0.1:*;">
   <title>File Input Drag n Drop</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="css/main.css">
-  <script src="/Scripts/js/main.js" defer></script>
 </head>
 
-<body style="width: 500px; height: 200px;"></body>
+<body style="width: 500px; height: 200px;">
   <main>
     <section class="droparea">
       <i class="far fa-images"></i>
@@ -18,6 +24,14 @@
       <p><small>Up to 20 images, No max file size.</small></p>
     </section>
   </main>
+
+  <input type="hidden" id="hiddenInput">
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+
+  <!-- Main script -->
+  <script src="/Scripts/js/main.js" defer></script>
 </body>
 
 </html>
