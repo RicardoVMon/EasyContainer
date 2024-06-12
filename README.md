@@ -1,4 +1,4 @@
-# Quick Container README
+# Quick Container
 
 ## Overview
 
