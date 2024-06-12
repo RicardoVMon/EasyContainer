@@ -7,27 +7,78 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="Content-Security-Policy"
     content="script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.gstatic.com http://localhost:* http://127.0.0.1:*;">
-  <title>File Input Drag n Drop</title>
+  <title>Quick Container</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
   <link rel="stylesheet" href="css/main.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
-<body style="width: 500px; height: 200px;">
-  <main>
-    <section class="droparea">
-      <i class="far fa-images"></i>
-      <p>Drop your .png or .jpg files here!</p>
-      <p><small>Up to 20 images, No max file size.</small></p>
+<body class="container d-flex flex-column align-items-center">
+
+  <main class="container">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg fixed-top bg-dark navbar-dark">
+      <div class="container d-flex justify-content-center">
+        <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+            <a class="navbar-brand fw-bold" href="#">Quick Container</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Header -->
+    <header class="container">
+      <h1 class="text-center">Storage made easy!</h1>
+      <p class="text-center">Upload files by dragging and dropping them into the designated area. <br>
+        Then select the file extension you want to download back.</p>
+      <p class="text-center"></p>
+    </header>
+
+    <!-- Drop Area -->
+    <section class="droparea container-flex w-75" style="height: 30vh;">
+      <i class="far fa-images fa-5x d-flex align-items-center" style="font-size: 130px;"></i>
+      <p class="mb-0">Drop your files here files here!</p>
+      <p><small>Drop any amount you want, No max file size.</small></p>
     </section>
+
+    <!-- Loading Bar -->
+    <section id="loadingBarContainer" class="container w-75 px-0"
+      style="width: 100%; height: 25px; background-color: #f3f3f3;">
+      <div id="loadingBar" class="text-center text-dark container-flex justify-content-around"
+        style="height: 25px; width: 0%; background-color: #4CAF50;">
+      </div>
+    </section>
+
+    <!-- File Drop Down -->
+    <section class="container w-75 justify-content-start px-0 my-2">
+      <select id="fileTypeSelect" onchange="listFilesInDirectory(this.value)">
+        <option value="" disabled selected>Select a file type</option>
+      </select>
+    </section>
+
+    <!-- File list -->
+    <section id="fileList" class="container w-75"></section>
+
   </main>
 
-  <input type="hidden" id="hiddenInput">
+  <footer class="bg-dark text-light text-center fixed-bottom">
+    <div class="text-center p-3">
+      © 2024 Copyright:
+      <a class="text-light" href="https://github.com/RicardoVMon">RicardoVMon</a>
+    </div>
+  </footer>
+
 
   <!-- Firebase SDKs -->
-  <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
-
+  <script src="https://www.gstatic.com/firebasejs/7.14.0/firebase.js"></script>
   <!-- Main script -->
   <script src="/Scripts/js/main.js" defer></script>
+
 </body>
 
 </html>

@@ -5,6 +5,6 @@
     "version": "1.0",
     "action": {
       "default_popup": "/Views/index.html",
-      "default_icon": "/Views/img/pdf.png"
+      "default_icon": "/Views/img/database.png"
     }
   }
